@@ -80,11 +80,11 @@ def delete_client(cur, client_id):
 
 def find_client(cur, name='NULL', surname='NULL', email='NULL', phone='NULL'):
     cur.execute('''SELECT * FROM client
-            WHERE client_id = client_id
-            AND name = COALESCE({}, name)
-            AND  surname = COALESCE({}, surname)
-            AND  email = COALESCE({}, email)
-            AND client_id 
+                WHERE client_id = client_id
+                AND name = COALESCE({}, name)
+                AND  surname = COALESCE({}, surname)
+                AND  email = COALESCE({}, email)
+                AND client_id 
                     IN (SELECT client_id FROM phone
                     WHERE phone = COALESCE('{}', phone));'''.format (name, surname, email, phone))
 
