@@ -108,7 +108,7 @@ def show_client(cur, client_id):
         print(phone[2])
 
 if __name__ == '__main__':
-    with psycopg2.connect(host = '192.168.46.52',  database="postgres", user="postgres", password="postgres") as conn:
+    with psycopg2.connect(host = 'localhost',  database="postgres", user="postgres", password="pgs") as conn:
         with conn.cursor() as cur:
             drop_db(cur)
             create_db(cur)
