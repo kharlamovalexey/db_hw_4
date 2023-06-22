@@ -100,8 +100,7 @@ def find_client(conn, name=None, surname=None, email=None, phone=None):
         sql = """AND client_id 
                  IN (SELECT client_id FROM phone
                  WHERE phone = '{phone}')"""
-    sql = sql + f';'
-    # да, да... SQL-инъекции... Но как это реализовать?
+    sql = sql + ';'
     with conn.cursor() as cur:  
         cur.execute(sql)
         print (cur.fetchall())
