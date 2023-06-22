@@ -92,8 +92,8 @@ def find_client(cur, name='NULL', surname='NULL', email='NULL', phone='NULL'):
 
 def show_client(cur, client_id):
     cur.execute('''SELECT * FROM client
-            WHERE client_id = %s
-            ''', (client_id,))
+                WHERE client_id = %s
+                ''', (client_id,))
 
     client = cur.fetchone()
     print(client[0])
