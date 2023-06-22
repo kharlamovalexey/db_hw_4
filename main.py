@@ -118,7 +118,7 @@ if __name__ == '__main__':
             client_3 = add_client(cur, 'Сидор', 'Сидоров', 'sidirovSS@gmail.ru', ['+71231234567', '+755533322211'])
 
             change_client(cur, client_1, name='Ivan', surname='Ivanov',  phones=['+79998887764', '+79998887765'])
-            change_client(cur, client_1, name='Ivan', surname='Ivanov', )
+            # change_client(cur, client_1, name='Ivan', surname='Ivanov', )
 
             rec = find_client(cur, phone = '+78985556636')
             print(rec)
