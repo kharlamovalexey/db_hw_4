@@ -1,6 +1,6 @@
 import psycopg2
 
-def create_db(cur):
+def create_tables(cur):
     cur.execute('''
                 CREATE TABLE IF NOT EXISTS client(
                 client_id serial PRIMARY KEY,
@@ -16,7 +16,7 @@ def create_db(cur):
                 );
                 ''')
 
-def drop_db(cur):
+def drop_tables(cur):
     cur.execute('''
                 DROP TABLE IF EXISTS phone CASCADE;
                 DROP TABLE IF EXISTS client CASCADE;
@@ -110,8 +110,8 @@ def show_client(cur, client_id):
 if __name__ == '__main__':
     with psycopg2.connect(host = 'localhost',  database="postgres", user="postgres", password="pgs") as conn:
         with conn.cursor() as cur:
-            drop_db(cur)
-            create_db(cur)
+            drop_tables(cur)
+            create_tables(cur)
 
             client_1 = add_client(cur, 'Иван', 'Иванов', 'ivanov@gmail.ru', ['+79998887766', '+79998887767'])
             client_2 = add_client(cur, 'Петр', 'Петров', 'petrov@gmail.ru', ['+78985556633', '+78985556636'])
